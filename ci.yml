@@ -1,0 +1,44 @@
+name: Run Cypress
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Checkout Code
+      uses: actions/checkout@v3
+
+    - name: 🟢 Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: 📦 Install Dependencies
+      run: npm install
+
+    # --- Cypress UI Test Section ---
+    - name: 🧪 Run Cypress Tests
+      run: npx cypress run
+
+    # --- Newman API Test Section ---
+    - name: 📥 Install Newman
+      run: npm install -g newman
+
+    - name: 🔁 Run Postman API Tests
+      run: |
+        newman run postman/Remwaste.postman_collection.json \
+          -e postman/Remwaste.postman_environment.json \
+          --reporters cli,html \
+          --reporter-html-export newman-report.html
+
+    - name: 📤 Upload Newman Report
+      uses: actions/upload-artifact@v3
+      with:
+        name: newman-report
+        path: newman-report.html
