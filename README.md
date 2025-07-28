@@ -46,6 +46,8 @@ Install Newman globally: npm install -g newman
 Run the test collection:newman run postman/remwastecollection.json
 
 **Github Actions**
+Create a github folder and a yml file
+add your script
 To Trigger the Tests
 Push any commit or open a pull request to the main branch. GitHub Actions will automatically:
 Install Node.js and project dependencies.
