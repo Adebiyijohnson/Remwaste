@@ -45,6 +45,13 @@ npx cypress open
 Install Newman globally: npm install -g newman
 Run the test collection:newman run postman/remwastecollection.json
 
+**Github Actions**
+To Trigger the Tests
+Push any commit or open a pull request to the main branch. GitHub Actions will automatically:
+Install Node.js and project dependencies.
+Run Cypress UI tests.
+Run Newman API tests.
+Upload API test results.
 
 **Author
 Adebiyi Johnson
