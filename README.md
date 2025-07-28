@@ -2,6 +2,7 @@
 
 **UI Automation**
 Note: The page object method was used in this project(POM)
+Web Url: https://tutorialsninja.com/demo/index.php?route=common/home
 
  **Features Covered**
 - Login with valid and invalid credentials
@@ -31,8 +32,8 @@ npx cypress open
 **API Automation**
 
    **Prerequisites**
-- Download Postman
-- Download Node.js
+- Postman download: Download Postman
+- Nodejs download: Download Node.js
 
    **Running Tests in Postman GUI**
 - Open Postman Desktop App.
